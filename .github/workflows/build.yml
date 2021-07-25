@@ -37,7 +37,8 @@ jobs:
         run: |
             cd /tmp
             wget https://www.php.net/distributions/php-7.4.21.tar.gz
-            tar xf php-7.4.21.tar.gz
+            tar xfz php-7.4.21.tar.gz
+            ls -la
             
       - name: CD to dir
         run: cd php-7.4.21
