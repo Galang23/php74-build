@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: mkdir home/anjay/opt
+      - run: mkdir -p /home/anjay/opt
+      
       - name: Install dependencies
         run: |
             sudo apt update
@@ -37,7 +40,7 @@ jobs:
         run: |
             cd /tmp
             wget https://www.php.net/distributions/php-7.4.21.tar.gz
-            tar xfz php-7.4.21.tar.gz
+            tar -xf php-7.4.21.tar.gz
             ls -la
             
       - name: CD to dir
