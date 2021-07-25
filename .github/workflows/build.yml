@@ -26,32 +26,32 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Creating environment
-      - run: useradd -m anjay
+        run: useradd -m anjay
       
       - name: Install dependencies
-      - run: apt -y install libfcgi-dev libfcgi0ldbl libjpeg-turbo8-dev libmcrypt-dev libssl-dev libc-client2007e libc-client2007e-dev libxml2-dev libbz2-dev libcurl4-openssl-dev libjpeg-dev libpng-dev libfreetype6-dev libkrb5-dev libpq-dev libxml2-dev libxslt1-dev libzip-dev libsqlite3-dev libonig-dev
-      - run: ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a
-      - run: |
+        run: |
+            apt -y install libfcgi-dev libfcgi0ldbl libjpeg-turbo8-dev libmcrypt-dev libssl-dev libc-client2007e libc-client2007e-dev libxml2-dev libbz2-dev libcurl4-openssl-dev libjpeg-dev libpng-dev libfreetype6-dev libkrb5-dev libpq-dev libxml2-dev libxslt1-dev libzip-dev libsqlite3-dev libonig-dev
+            ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a
             cd /usr/include
             ln -s x86_64-linux-gnu/curl
       
       - name: Download PHP 7.4.21 source
-      - run: |
+        run: |
             cd /tmp
             wget https://www.php.net/distributions/php-7.4.21.tar.gz
             tar xf php-7.4.21.tar.gz
             
       - name: CD to dir
-      - run: cd php-7.4.21
+        run: cd php-7.4.21
       
       - name: Configure...
-      - run: ./configure --prefix=/home/anjay/opt/php7.4 --with-pdo-pgsql --with-pdo-mysql --with-mysqli --with-mysql-sock=$HOME/.local/tmp/mysqld.sock --with-zlib-dir --with-freetype --enable-mbstring --enable-soap --enable-calendar --with-curl --with-zlib --enable-gd --with-jpeg --with-webp --with-pgsql --disable-rpath --enable-inline-optimization --with-bz2 --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex --enable-exif --enable-bcmath --with-mhash --with-zip --with-jpeg --with-openssl --enable-ftp --with-imap --with-imap-ssl --with-kerberos --with-gettext --with-xmlrpc --with-xsl --enable-opcache --enable-intl --with-pear --enable-fpm
+        run: ./configure --prefix=/home/anjay/opt/php7.4 --with-pdo-pgsql --with-pdo-mysql --with-mysqli --with-mysql-sock=$HOME/.local/tmp/mysqld.sock --with-zlib-dir --with-freetype --enable-mbstring --enable-soap --enable-calendar --with-curl --with-zlib --enable-gd --with-jpeg --with-webp --with-pgsql --disable-rpath --enable-inline-optimization --with-bz2 --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex --enable-exif --enable-bcmath --with-mhash --with-zip --with-jpeg --with-openssl --enable-ftp --with-imap --with-imap-ssl --with-kerberos --with-gettext --with-xmlrpc --with-xsl --enable-opcache --enable-intl --with-pear --enable-fpm
       
       - name: Compile..
-      - run: make -j4 && make install
+        run: make -j4 && make install
       
       - name: Penyesuaian
-      - run: |
+        run: |
             cp php.ini-production /home/anjay/opt/php7.4/lib/php.ini
             cp /home/anjay/opt/php7.4/etc/php-fpm.conf.default /home/anjay/opt/php7.4/etc/php-fpm.conf
             cp /home/anjay/opt/php7.4/etc/php-fpm.d/www.conf.default /home/anjay/opt/php7.4/etc/php-fpm.d/www.conf
