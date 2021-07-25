@@ -42,8 +42,9 @@ jobs:
             
       - name: extract php
         run: |
+            cd /tmp
             echo $PWD
-            tar -xf /tmp/php-7.4.21.tar.gz
+            tar -xf php-7.4.21.tar.gz
             ls -lah
             
       - name: CD to dir
