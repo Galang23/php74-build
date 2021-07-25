@@ -48,7 +48,7 @@ jobs:
             ls -lah
             
       - name: CD to dir
-        run: cd php-7.4.21
+        run: cd /tmp/php-7.4.21
       
       - name: Configure...
         run: ./configure --prefix=/home/anjay/opt/php7.4 --with-pdo-pgsql --with-pdo-mysql --with-mysqli --with-mysql-sock=$HOME/.local/tmp/mysqld.sock --with-zlib-dir --with-freetype --enable-mbstring --enable-soap --enable-calendar --with-curl --with-zlib --enable-gd --with-jpeg --with-webp --with-pgsql --disable-rpath --enable-inline-optimization --with-bz2 --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex --enable-exif --enable-bcmath --with-mhash --with-zip --with-jpeg --with-openssl --enable-ftp --with-imap --with-imap-ssl --with-kerberos --with-gettext --with-xmlrpc --with-xsl --enable-opcache --enable-intl --with-pear --enable-fpm
