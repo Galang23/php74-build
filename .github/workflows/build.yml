@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: mkdir home/anjay/opt
-        run: mkdir -p /home/anjay/opt
+        run: sudo mkdir -p /home/anjay/opt
       
       - name: Install dependencies
         run: |
