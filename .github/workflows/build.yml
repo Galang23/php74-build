@@ -27,9 +27,8 @@ jobs:
       
       - name: mkdir home
         run: | 
-            sudo useradd -m anjay
-            sudo mkdir /home/anjay
-      
+            sudo useradd -m anjay      
+            
       - name: Install dependencies
         run: |
             sudo apt update
