@@ -28,7 +28,6 @@ jobs:
       - name: mkdir home
         run: | 
             sudo useradd -m anjay
-            sudo mkdir /home
             sudo mkdir /home/anjay
       
       - name: Install dependencies
