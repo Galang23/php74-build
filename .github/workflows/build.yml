@@ -78,7 +78,7 @@ jobs:
           # Artifact name
           name: Artifact for PHP7.4 # optional, default is artifact
           # A file, directory or wildcard pattern that describes what to upload
-          path: /home/anjay/opt/php7.4
+          path: /home/anjay/opt/
           # The desired behavior if no files are found using the provided path.
           #Available Options:
             #warn: Output a warning but do not fail the action
